@@ -163,6 +163,7 @@ public class FolderRefresher {
                     ImapFolderEvent imapEvent = metadata.create(ImapFolderEvent.class);
                     imapEvent.setEvent(eventType);
                     imapEvent.setFolder(imapFolder);
+                    imapEvent.setEnabled(true);
 
                     return imapEvent;
                 }).collect(Collectors.toList())

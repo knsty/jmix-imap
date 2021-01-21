@@ -24,6 +24,7 @@ import io.jmix.core.entity.annotation.OnDelete;
 import io.jmix.core.entity.annotation.OnDeleteInverse;
 import io.jmix.core.metamodel.annotation.*;
 import org.apache.commons.collections4.CollectionUtils;
+import org.apache.commons.lang3.BooleanUtils;
 import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedBy;
@@ -203,7 +204,8 @@ public class ImapFolder {
     }
 
     public boolean hasEvent(ImapEventType eventType) {
-        return getEvent(eventType) != null;
+        ImapFolderEvent event = getEvent(eventType);
+        return event != null && BooleanUtils.isTrue(event.getEnabled());
     }
 
     public Boolean getSelected() {

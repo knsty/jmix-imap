@@ -311,6 +311,7 @@
             <column name="EVENT" type="varchar(50)">
                 <constraints nullable="false"/>
             </column>
+            <column name="ENABLED" type="boolean"/>
         </createTable>
 
         <createIndex tableName="IMAP_FOLDER_EVENT" indexName="IDX_IMAP_FOLDER_EVENT_FOLDER">
