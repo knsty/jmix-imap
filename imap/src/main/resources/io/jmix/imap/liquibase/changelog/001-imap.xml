@@ -141,7 +141,7 @@
                              foreignKeyName="FK_IMAP_FOLDER_MAIL_BOX"
                              references="IMAP_MAIL_BOX(ID)"/>
             </column>
-            <column name="SELECTED" type="boolean">
+            <column name="ENABLED" type="boolean">
                 <constraints nullable="false"/>
             </column>
             <column name="CAN_HOLD_MESSAGES" type="boolean">

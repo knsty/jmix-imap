@@ -138,7 +138,7 @@
                             </actions>
                             <columns>
                                 <column id="name"/>
-                                <column id="selected" caption="" editable="true"/>
+                                <column id="enabled" editable="true"/>
                             </columns>
                             <rows/>
                             <buttonsPanel>

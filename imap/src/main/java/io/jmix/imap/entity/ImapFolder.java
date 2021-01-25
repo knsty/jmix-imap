@@ -80,6 +80,7 @@ public class ImapFolder {
     @OnDelete(DeletePolicy.CASCADE)
     @OneToMany(mappedBy = "folder")
     @Composition
+    @OrderBy("event")
     protected List<ImapFolderEvent> events;
 
     @OnDeleteInverse(DeletePolicy.CASCADE)
@@ -87,8 +88,8 @@ public class ImapFolder {
     @JoinColumn(name = "MAIL_BOX_ID")
     protected ImapMailBox mailBox;
 
-    @Column(name = "SELECTED", nullable = false)
-    protected Boolean selected = false;
+    @Column(name = "ENABLED", nullable = false)
+    protected Boolean enabled = false;
 
     @Column(name = "CAN_HOLD_MESSAGES", nullable = false)
     protected Boolean canHoldMessages = false;
@@ -208,12 +209,12 @@ public class ImapFolder {
         return event != null && BooleanUtils.isTrue(event.getEnabled());
     }
 
-    public Boolean getSelected() {
-        return selected;
+    public Boolean getEnabled() {
+        return enabled;
     }
 
-    public void setSelected(Boolean selected) {
-        this.selected = selected;
+    public void setEnabled(Boolean enabled) {
+        this.enabled = enabled;
     }
 
     public Boolean getCanHoldMessages() {

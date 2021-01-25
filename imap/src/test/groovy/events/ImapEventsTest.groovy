@@ -512,7 +512,7 @@ class ImapEventsTest extends Specification {
         ImapFolder imapFolder = metadata.create(ImapFolder)
         imapFolder.name = folderName
         imapFolder.mailBox = mailBox
-        imapFolder.selected = true
+        imapFolder.enabled = true
         imapFolder.deleted = deleted
 
         dataManager.save(imapFolder)

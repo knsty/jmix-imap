@@ -306,10 +306,10 @@ public class ImapMailBoxEdit extends StandardEditor<ImapMailBox> {
         }
     }
 
-    @Install(to = "foldersTable.selected", subject = "columnGenerator")
-    public CheckBox foldersTableSelectedColumnGenerator(ImapFolder folder) {
+    @Install(to = "foldersTable.enabled", subject = "columnGenerator")
+    public CheckBox foldersTableEnabledColumnGenerator(ImapFolder folder) {
         CheckBox checkBox = componentsFactory.create(CheckBox.class);
-        checkBox.setValueSource(new ContainerValueSource(foldersTable.getInstanceContainer(folder), "selected"));
+        checkBox.setValueSource(new ContainerValueSource(foldersTable.getInstanceContainer(folder), "enabled"));
         checkBox.setEditable(Boolean.TRUE.equals(folder.getCanHoldMessages() && !Boolean.TRUE.equals(folder.getDeleted())));
         checkBox.setFrame(getWindow().getFrame());
         checkBox.setWidth("20");
@@ -424,9 +424,9 @@ public class ImapMailBoxEdit extends StandardEditor<ImapMailBox> {
     protected void changeSelection(ImapFolder folder, boolean selection) {
         if (folder != null
                 && Boolean.TRUE.equals(folder.getCanHoldMessages())
-                && Boolean.TRUE.equals(folder.getSelected()) != selection) {
+                && Boolean.TRUE.equals(folder.getEnabled()) != selection) {
 
-            folder.setSelected(selection);
+            folder.setEnabled(selection);
             foldersDc.replaceItem(folder);
         }
     }
